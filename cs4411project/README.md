@@ -37,7 +37,7 @@ Another way to run Kafka usage with 2 partitions and no replication (method used
 Create two new topics with different names,  
 /opt/homebrew/opt/kafka/bin/kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 2 --topic user_changes2  
 /opt/homebrew/opt/kafka/bin/kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 2 --topic ticket_changes2  
-Important: Ensure that the DatabaseProducer, UserConsumer, and TicketConsumer Java files use these topic names. You will have to change the name of the topics in these three files, and then recompile.  
+Important: Ensure that the DatabaseProducer, UserConsumer, and TicketConsumer Java files matche the topic names that were created. You can change the name of the topics in these three files and then recompile to match the name of the topic in Kafka.
 Files DatabaseProducerPartitioned, UserConsumerPartitioned, and TicketConsumerPartitioned have been provided which are preset to produce/consume from topics "user_changes2" and "ticket_changes2".
 
 ## Start the Program

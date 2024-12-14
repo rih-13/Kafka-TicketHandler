@@ -25,7 +25,7 @@ public class UserConsumer {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 
 
-        consumer.subscribe(Collections.singletonList("user_changes2")); // subscribing to topic
+        consumer.subscribe(Collections.singletonList("user_changes")); // subscribing to topic
 
         
 

@@ -46,8 +46,8 @@ public class DatabaseProducer {
             String sold = String.valueOf(rs.getBoolean("sold"));
             String userID = String.valueOf(rs.getLong("userID"));
             String message = "{\"operation\":\"INSERT\", \"table\":\"Ticket\", \"data\":{\"ticketID\":\"" + ticketID + "\",\"sold\":\"" + sold + "\",\"userID\":\"" + userID + "\"}}";
-            //producer.send(new ProducerRecord<>("ticket_changes", ticketID, message));
-            producer.send(new ProducerRecord<>("ticket_changes2", ticketID, message));
+            //producer.send(new ProducerRecord<>("ticket_changes2", ticketID, message));
+            producer.send(new ProducerRecord<>("ticket_changes", ticketID, message));
             System.out.println("Sent: " + message);
         }
 
