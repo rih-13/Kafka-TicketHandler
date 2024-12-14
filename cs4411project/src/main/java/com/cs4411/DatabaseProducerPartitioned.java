@@ -1,6 +1,3 @@
-/** Sends messages to topic user_changes */
-
-
 package com.cs4411;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -12,7 +9,7 @@ import java.util.Collections; // for subscribing to topics
 import java.util.List; 
 
 
-public class DatabaseProducer {
+public class DatabaseProducerPartitioned {
     public static void main(String[] args) throws Exception {
         // Kafka producer configuration
         Properties props = new Properties();
@@ -33,8 +30,7 @@ public class DatabaseProducer {
             String userID = String.valueOf(rs.getLong("userID"));
             String userName = rs.getString("userName");
             String message = "{\"operation\":\"INSERT\", \"table\":\"User\", \"data\":{\"userID\":\"" + userID + "\",\"userName\":\"" + userName + "\"}}";
-            producer.send(new ProducerRecord<>("user_changes", userID, message));
-            //producer.send(new ProducerRecord<>("user_changes2", userID, message)); You can change the topic name if needed
+            producer.send(new ProducerRecord<>("user_changes2", userID, message));
             System.out.println("Sent: " + message);
         }
 
@@ -46,7 +42,6 @@ public class DatabaseProducer {
             String sold = String.valueOf(rs.getBoolean("sold"));
             String userID = String.valueOf(rs.getLong("userID"));
             String message = "{\"operation\":\"INSERT\", \"table\":\"Ticket\", \"data\":{\"ticketID\":\"" + ticketID + "\",\"sold\":\"" + sold + "\",\"userID\":\"" + userID + "\"}}";
-            //producer.send(new ProducerRecord<>("ticket_changes", ticketID, message));
             producer.send(new ProducerRecord<>("ticket_changes2", ticketID, message));
             System.out.println("Sent: " + message);
         }

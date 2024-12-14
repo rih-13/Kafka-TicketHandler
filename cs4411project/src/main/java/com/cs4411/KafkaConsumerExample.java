@@ -34,8 +34,8 @@ public class KafkaConsumerExample {
             while (true) {
                 ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100)); // polling interval
                 for (ConsumerRecord<String, String> record : records) {
-                    System.out.printf("Offset: %d, Value: %s%n", 
-                                      record.offset(), record.value());
+                    System.out.printf("Topic: %s, Parition: %d, Offset: %d, Value: %s%n", 
+                                      record.topic(), record.partition(), record.offset(), record.value());
                 }
             }
         } finally {

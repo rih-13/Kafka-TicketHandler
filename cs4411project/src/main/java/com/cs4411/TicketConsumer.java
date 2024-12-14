@@ -1,3 +1,5 @@
+/** Consumesm essages from topic ticket_changes */
+
 package com.cs4411;
 
 import org.apache.kafka.clients.consumer.ConsumerRecords;

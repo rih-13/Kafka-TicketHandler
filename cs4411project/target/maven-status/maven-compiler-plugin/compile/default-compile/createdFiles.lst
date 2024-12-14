@@ -5,6 +5,7 @@ com/cs4411/TicketConsumer.class
 com/cs4411/KafkaConsumerExample.class
 com/cs4411/Ticket.class
 com/cs4411/KafkaProducerExample.class
+com/cs4411/DatabaseProducerPartitioned.class
 com/cs4411/User.class
 com/cs4411/App.class
 com/cs4411/DatabaseProducer.class
